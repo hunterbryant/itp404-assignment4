@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Github Search</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="contentContainer">
+
+        <div class="headerContainer">
+            <h1>Github User Search</h1>
+            <p>Hunter Bryant</p>
+            <br>
+            <input type="text" class="textbox" id="searchBox"><button id="searchButton" onclick="searchForRepos()">Search</button>
+        </div>
+
+
+
+        <div class="resultsContainer" id="resultsContainer">
+            <p id="resultsStatus">Search for a user's repos</p>
+
+            <div id="repos" class="posts"></div>
+
+            <br>
+        </div>
+
+        <div class="historyContainer" id="historyContainer">
+            <h3>Search history</h3>
+
+            <div id="searches" class="posts"></div>
+        </div>
+
+    </div>
+
+    <template id="repos-template">
+        <br>
+        {{#each repos}}
+        <div class="repo">
+            <h3>{{repoName}}</h3>
+            <a href="{{url}}">{{url}}</a>
+            <div class="clearfix"></div>
+        </div>
+        {{/each}}
+    </template>
+
+    <template id="searches-template">
+        {{#each searches}}
+        <div class="search">
+            <p>{{searchName}}</p>
+        </div>
+        {{/each}}
+    </template>
+
+    <script src="src/jquery-3.2.1.js"></script>
+    <script src="src/handlebars.js"></script>
+    <script src="src/main.js"></script>
+
+</body>
+
+</html>
